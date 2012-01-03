@@ -1,0 +1,7 @@
+*.class
+*.pyc
+*.pyo
+.buildpath
+.project
+.settings
+thumb.db
