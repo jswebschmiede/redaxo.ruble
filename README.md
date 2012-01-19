@@ -1,10 +1,10 @@
 # Redaxo bundle for Aptana Studio
 
-A bundle to enable related commands in Aptana Studio.
+A bundle to enable related commands and snippets in Aptana Studio.
 
 ## Authors
 
-* Joerg Schoeneburg
+* Joerg Schoeneburg - http://jswebhschmiede.de
 
 ## License
 
