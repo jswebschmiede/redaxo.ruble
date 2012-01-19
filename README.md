@@ -4,7 +4,7 @@ A bundle to enable related commands and snippets in Aptana Studio.
 
 ## Authors
 
-* Joerg Schoeneburg - http://jswebhschmiede.de
+* Joerg Schoeneburg - http://www.jswebschmiede.de
 
 ## License
 
