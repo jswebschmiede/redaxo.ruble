@@ -29,6 +29,11 @@ END
       sub_menu.command 'REXSeo <head>'
       sub_menu.command 'Redaxo Navigation + CSS Class'
     end
+    main_menu.menu 'Module' do |sub_menu|
+      sub_menu.command 'REX Module Header'
+      sub_menu.command 'REX Module Addon Available'
+      sub_menu.command 'REX Module select foreach'
+    end
   end
 end
 

@@ -9,9 +9,9 @@ command 'Redaxo Frontpage' do |cmd|
     context.output = ' 
 <?php
   if (\$REX[\'START_ARTICLE_ID\'] == REX_ARTICLE_ID) {
-      \${1}
+      \${1:true}
   } else {
-      \${2}
+      \${2:false}
   }
 ?>
 '
@@ -20,6 +20,7 @@ end
 
 command 'Empty Sidebar' do |cmd|
   # cmd.key_binding = 'CONTROL+SHIFT+E'
+  cmd.trigger = 'redaxo_sidebar'
   cmd.invoke do |context|
     context.output =' 
 <?php
@@ -36,6 +37,7 @@ end
 
 command 'Redaxo Navigation + CSS Class' do |cmd|
   # cmd.key_binding = 'CONTROL+SHIFT+E'
+  cmd.trigger = 'redaxo_nav'
   cmd.invoke do |context|
     context.output = ' 
 <?php 
