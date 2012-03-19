@@ -20,6 +20,7 @@ with_defaults :scope => 'source.php, text', :input => :none, :output => :insert_
  * @date:
  *=======================================================
  */
+?>
   <style type="text/css">
   .js-rex-MODULENAME-form {
     overflow: hidden; 
@@ -42,7 +43,6 @@ with_defaults :scope => 'source.php, text', :input => :none, :output => :insert_
     <div class="js-rex-MODULENAME-form">
     
     </div>
-?>
 EOF
     end
   end
@@ -55,6 +55,10 @@ if(OOAddon::isAvailable('MODULE'))
 {
   
 }
+else
+{
+    echo rex_warning('Dieses Modul ben&ouml;tigt das "MODULE" Addon!');
+}
 EOF
     end
   end
@@ -65,10 +69,10 @@ EOF
       context.output =<<-EOF
 <select name="VALUE[]" id="VALUE[]">
 <?php
-  foreach (array("one", "two", "three") as $value)
+  foreach (array("one", "two", "three") as $key => $value)
   {
-    echo '<option value="'.$value.'" ';
-    if ("REX_VALUE[]" == "$value")
+    echo '<option value="'.$key.'" ';
+    if ("REX_VALUE[]" == "$key")
     {
       echo 'selected="selected" ';
     }
@@ -76,6 +80,32 @@ EOF
   }
 ?>
 </select>
+EOF
+    end
+  end
+  
+  command 'REX Category Select List' do |cmd|
+  # cmd.key_binding = 'CONTROL+SHIFT+E'
+    cmd.invoke do |context|
+      context.output =<<-EOF
+$s = new rex_category_select();
+$s->setName('${0:VALUE}');
+$s->setSize(${1:size});
+$s->setSelected('${2:REX_VALUE}');
+EOF
+    end
+  end
+  
+  command 'REX Select List with Select Class' do |cmd|
+  # cmd.key_binding = 'CONTROL+SHIFT+E'
+    cmd.invoke do |context|
+      context.output =<<-EOF
+$s = new rex_select();
+$s->setName('${0:VALUE}');
+$s->setSize(${1:size});
+$s->addOption('${2:showvalue}', '${2:value}');
+$s->setSelected('${2:REX_VALUE}');
+echo $s->get();
 EOF
     end
   end

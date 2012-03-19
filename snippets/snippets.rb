@@ -25,6 +25,18 @@ with_defaults :scope => 'text.html, source.php' do
     snip.trigger = "REX"
     snip.expansion = "REX_CLANG_ID"
   end
+  snippet "FirePHP::LOG" do |snip|
+    snip.trigger = "Fire"
+    snip.expansion = "fb(${0}, FirePHP::LOG);"
+  end
+  snippet "FirePHP::ERROR" do |snip|
+    snip.trigger = "Fire"
+    snip.expansion = "fb(${0}, FirePHP::ERROR);"
+  end
+  snippet "FirePHP::WARN" do |snip|
+    snip.trigger = "Fire"
+    snip.expansion = "fb(${0}, FirePHP::WARN);"
+  end
 end
 
 with_defaults :scope => 'source.php' do
