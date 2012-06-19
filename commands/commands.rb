@@ -70,6 +70,15 @@ EOF
   end
 end
 
+command 'Redaxo HTDOCS Path' do |cmd|
+  # cmd.key_binding = 'CONTROL+SHIFT+E'
+  cmd.invoke do |context|
+    context.output =<<-EOF 
+<?php echo $REX['HTDOCS_PATH']; ?>
+EOF
+  end
+end
+
 command 'REXSeo <head>' do |cmd|
   # cmd.key_binding = 'CONTROL+SHIFT+E'
   cmd.invoke do |context|

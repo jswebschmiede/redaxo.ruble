@@ -28,11 +28,14 @@ END
       sub_menu.command 'Article/Category online'
       sub_menu.command 'REXSeo <head>'
       sub_menu.command 'Redaxo Navigation + CSS Class'
+      sub_menu.command 'Redaxo HTDOCS Path'
     end
     main_menu.menu 'Module' do |sub_menu|
       sub_menu.command 'REX Module Header'
       sub_menu.command 'REX Module Addon Available'
       sub_menu.command 'REX Module select foreach'
+      sub_menu.command 'REX Category Select List'
+      sub_menu.command 'REX Select List with Select Class'
     end
   end
 end
