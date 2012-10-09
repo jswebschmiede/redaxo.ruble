@@ -8,6 +8,11 @@ template "Superfish Navigations Template" do |t|
   end
 end
 
+template "Redaxo Template" do |t|
+  t.filetype = "*.php"
+  t.location = "templates/sample_project_template.zip"
+end
+
 #project_template "Superfish Navigations Template" do |t|
 #  t.type = :web
 #  t.location = "templates/superfish_nav_template.zip"
