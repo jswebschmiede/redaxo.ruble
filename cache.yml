@@ -68,7 +68,7 @@ children:
   displayName: Redaxo
   path: bundle.rb
   scope: null
-- !!com.aptana.scripting.model.EnvironmentElement {customProperties: null, displayName: environment-5e17b07b-ae8b-4c6a-8d32-af9f43fc6aa6,
+- !!com.aptana.scripting.model.EnvironmentElement {customProperties: null, displayName: environment-136e7b7a-a7e4-489e-a2f9-ed1957741f2a,
   path: bundle.rb, scope: source.php}
 - !!com.aptana.scripting.model.CommandElement
   async: false
@@ -168,6 +168,32 @@ children:
   async: false
   customProperties: null
   displayName: REX Module select foreach
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_text
+  path: commands\module_commands.rb
+  runType: current_thread
+  scope: source.php, text
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.CommandElement
+  async: false
+  customProperties: null
+  displayName: REX Category Select List
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_text
+  path: commands\module_commands.rb
+  runType: current_thread
+  scope: source.php, text
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.CommandElement
+  async: false
+  customProperties: null
+  displayName: REX Select List with Select Class
   input: [none]
   inputPath: null
   keyBindingMap: null
@@ -453,6 +479,51 @@ children:
     prefix_values: [REX]
   displayName: REX_CLANG_ID
   expansion: REX_CLANG_ID
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [Fire]
+  displayName: FirePHP::LOG
+  expansion: fb(${0}, FirePHP::LOG);
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [Fire]
+  displayName: FirePHP::ERROR
+  expansion: fb(${0}, FirePHP::ERROR);
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [Fire]
+  displayName: FirePHP::WARN
+  expansion: fb(${0}, FirePHP::WARN);
   input: [none]
   inputPath: null
   keyBindingMap: null
