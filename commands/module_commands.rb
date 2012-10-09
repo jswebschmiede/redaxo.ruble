@@ -1,6 +1,6 @@
 require 'ruble'
 
-with_defaults :scope => 'source.php, text', :input => :none, :output => :insert_as_text do |bundle|
+with_defaults :scope => 'source.php, text', :input => :none, :output => :insert_as_snippet do |bundle|
   
   command 'REX Module Header' do |cmd|
   # cmd.key_binding = 'CONTROL+SHIFT+E'
@@ -21,7 +21,7 @@ with_defaults :scope => 'source.php, text', :input => :none, :output => :insert_
  *=======================================================
  */
 ?>
-  <style type="text/css">
+<style type="text/css">
   .js-rex-MODULENAME-form {
     overflow: hidden; 
   }
@@ -40,9 +40,9 @@ with_defaults :scope => 'source.php, text', :input => :none, :output => :insert_
     display:block; 
   }
 </style>
-    <div class="js-rex-MODULENAME-form">
-    
-    </div>
+<div class="js-rex-MODULENAME-form">
+
+</div>
 EOF
     end
   end
@@ -50,29 +50,28 @@ EOF
   command 'REX Module Addon Available' do |cmd|
   # cmd.key_binding = 'CONTROL+SHIFT+E'
     cmd.invoke do |context|
-      context.output =<<-EOF
-if(OOAddon::isAvailable('MODULE'))
-{
-  
-}
-else
-{
+      context.output =<<-EOF 
+<?php
+if(OOAddon::isAvailable('MODULE')) {
+  $1
+} else {
     echo rex_warning('Dieses Modul ben&ouml;tigt das "MODULE" Addon!');
 }
 EOF
     end
   end
   
-  command 'REX Module select foreach' do |cmd|
+command 'REX Module select foreach' do |cmd|
   # cmd.key_binding = 'CONTROL+SHIFT+E'
     cmd.invoke do |context|
-      context.output =<<-EOF
-<select name="VALUE[]" id="VALUE[]">
+    context.output =<<-EOF
+<select name="VALUE[$1]" id="$2">
 <?php
-  foreach (array("one", "two", "three") as $key => $value)
+  $options = array("one" => 1, "two" => 2, "three" => 3);
+  foreach ($options as $option => $value)
   {
-    echo '<option value="'.$key.'" ';
-    if ("REX_VALUE[]" == "$key")
+    echo '<option value="'.$option.'" ';
+    if ("REX_VALUE[$1]" == "$option")
     {
       echo 'selected="selected" ';
     }
@@ -84,7 +83,35 @@ EOF
     end
   end
   
-  command 'REX Category Select List' do |cmd|
+command 'Ausgabe im Backend' do |cmd|
+  # cmd.key_binding = 'CONTROL+SHIFT+E'
+    cmd.invoke do |context|
+    context.output = "        
+    // Ausgabe im Backend
+    if ($REX['REDAXO']) {
+      
+    } else {
+      
+    }"
+    end
+  end
+command 'Textile Modul Output' do |cmd|
+  # cmd.key_binding = 'CONTROL+SHIFT+E'
+    cmd.invoke do |context|
+    context.output =<<-EOF
+  $textile = '';
+  if('REX_IS_VALUE[$1]') {
+    $textile = htmlspecialchars_decode("REX_VALUE[$1]");
+    $textile = str_replace("<br />","",$textile);
+    $textile = rex_a79_textile($textile);
+    $textile = str_replace("###","&#x20;",$textile);
+  }
+  echo $textile;
+EOF
+    end
+  end
+  
+command 'REX Category Select List' do |cmd|
   # cmd.key_binding = 'CONTROL+SHIFT+E'
     cmd.invoke do |context|
       context.output =<<-EOF
@@ -96,7 +123,7 @@ EOF
     end
   end
   
-  command 'REX Select List with Select Class' do |cmd|
+command 'REX Select List with Select Class' do |cmd|
   # cmd.key_binding = 'CONTROL+SHIFT+E'
     cmd.invoke do |context|
       context.output =<<-EOF
@@ -110,4 +137,17 @@ EOF
     end
   end
   
-end
+command 'REX Media Category Select List with Select Class' do |cmd|
+  # cmd.key_binding = 'CONTROL+SHIFT+E'
+    cmd.invoke do |context|
+      context.output =<<-EOF
+$s = new rex_mediacategory_select();
+$s->setStyle('class="rex-form-select"');
+$s->setSize(${1:size});
+$s->setName('${2:VALUE[$3]}');
+$s->setSelected('${4:REX_VALUE[$3]}');
+echo $s->get();
+EOF
+    end
+  end
+end 

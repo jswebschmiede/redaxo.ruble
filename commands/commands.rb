@@ -9,12 +9,11 @@ command 'Redaxo Frontpage' do |cmd|
     context.output = ' 
 <?php
   if (\$REX[\'START_ARTICLE_ID\'] == REX_ARTICLE_ID) {
-      \${1:true}
+      ${1:true}
   } else {
-      \${2:false}
+      ${2:false}
   }
-?>
-'
+?>'
   end
 end
 
@@ -30,8 +29,7 @@ command 'Empty Sidebar' do |cmd|
   } else {
       \$noSidebar = false;
   }
- ?>
-'
+ ?>'
   end
 end
 
@@ -42,11 +40,10 @@ command 'Redaxo Navigation + CSS Class' do |cmd|
     context.output = ' 
 <?php 
     \$nav = rex_navigation::factory();
-    \$nav->setClasses(array(\'${1}\'));
-    \$nav->setLinkClasses(array(\'${2}\'));
-    echo \$nav->get(${3},1,TRUE,TRUE); 
-?>
-'
+    \$nav->setClasses(array(${1:class}));
+    \$nav->setLinkClasses(array(${2:linkclass}));
+    echo \$nav->get(${3:catid},1,TRUE,TRUE); 
+?>'
     end
   end
   
@@ -59,14 +56,12 @@ with_defaults :scope => 'source.php, text', :input => :none, :output => :insert_
 command 'Article/Category online' do |cmd|
   # cmd.key_binding = 'CONTROL+SHIFT+E'
   cmd.invoke do |context|
-    context.output =<<-EOF 
-if ($this->getValue('status') == 0)
-{
-  header ('HTTP/1.0 404 Not Found');
-  header('Location: '.$REX['SERVER'].rex_getUrl($REX['NOTFOUND_ARTICLE_ID']));
+    context.output = ' 
+if (\$this->getValue(\'status\') == 0) {
+  header (\'HTTP/1.0 404 Not Found\');
+  header(\'Location: \'.$REX[\'SERVER\'].rex_getUrl(\$REX[\'NOTFOUND_ARTICLE_ID\']));
   exit;
-}
-EOF
+}'
   end
 end
 
@@ -83,29 +78,27 @@ command 'REXSeo <head>' do |cmd|
   # cmd.key_binding = 'CONTROL+SHIFT+E'
   cmd.invoke do |context|
     context.output =<<-EOF
-<?php
-    if(OOAddon::isAvailable('rexseo')) {
-        $meta_description   = rexseo::description();
-        $meta_keywords      = rexseo::keywords();
-        $meta_title         = rexseo::title();
-        $meta_canonical     = rexseo::canonical();
-        $meta_base          = rexseo::base();
-    }
-    else {
-        $OOStartArticle     = OOArticle::getArticleById($REX['START_ARTICLE_ID'], $REX['CUR_CLANG']);
-        $meta_description   = $OOStartArticle->getValue("art_description");
-        $meta_keywords      = $OOStartArticle->getValue("art_keywords");
+if (OOAddon::isAvailable('rexseo')) {
+  $meta             = new rexseo_meta();
+  $meta_description = $meta -> get_description();
+  $meta_keywords    = $meta -> get_keywords();
+  $meta_title       = $meta -> get_title();
+  $meta_canonical   = $meta -> get_canonical();
+  $meta_base        = $meta -> get_base();
+}
+else {
+  $meta_description = $OOStartArticle -> getValue("art_description");
+  $meta_keywords    = $OOStartArticle -> getValue("art_keywords");
 
-        if($this->getValue("art_description") != "")
-            $meta_description = htmlspecialchars($this->getValue("art_description"));
-        if($this->getValue("art_keywords") != "")
-            $meta_keywords    = htmlspecialchars($this->getValue("art_keywords"));
-        
-        $meta_title         = $REX['SERVERNAME'].' | '.$this->getValue("name");
-        $meta_canonical     = isset($_REQUEST['REQUEST_URI']) ? $_REQUEST['REQUEST_URI'] : '';
-        $meta_base          = 'http://'.$_SERVER['HTTP_HOST'].'/';
-    }
-?>
+  if ($this -> getValue("art_description") != "")
+    $meta_description = htmlspecialchars($this -> getValue("art_description"));
+  if ($this -> getValue("art_keywords") != "")
+    $meta_keywords = htmlspecialchars($this -> getValue("art_keywords"));
+
+  $meta_title = $REX['SERVERNAME'] . ' | ' . $this -> getValue("name");
+  $meta_canonical = isset($_REQUEST['REQUEST_URI']) ? $_REQUEST['REQUEST_URI'] : '';
+  $meta_base = 'http://' . $_SERVER['HTTP_HOST'] . '/';
+}
 EOF
   end
 end

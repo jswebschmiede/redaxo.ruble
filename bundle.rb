@@ -13,11 +13,6 @@ Redaxo CMS Templates and Snippets for templating, addons etc.
 END
   
   bundle.repository = 'git@github.com:jswebschmiede/redaxo.ruble.git'
-  
-  BLOCK_TAGS = '';
-  start_folding = /(\/\*|\{\s*$|<<<HTML)/
-  end_folding = /(\*\/|^\s*\}|^HTML;)/
-  bundle.folding['source.php'] = start_folding, end_folding
 
   # Use Commands > Bundle Development > Insert Bundle Section > Menu
   # to easily add new sections
@@ -34,8 +29,11 @@ END
       sub_menu.command 'REX Module Header'
       sub_menu.command 'REX Module Addon Available'
       sub_menu.command 'REX Module select foreach'
+      sub_menu.command 'Ausgabe im Backend'
+      sub_menu.command 'Textile Modul Output'
       sub_menu.command 'REX Category Select List'
       sub_menu.command 'REX Select List with Select Class'
+      sub_menu.command 'REX Media Category Select List with Select Class'
     end
   end
 end
