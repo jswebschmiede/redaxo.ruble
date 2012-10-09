@@ -1,9 +1,79 @@
 !!com.aptana.scripting.model.BundleElement
 author: Joerg Schoenburg
 children:
+- !!com.aptana.scripting.model.MenuElement
+  children:
+  - children:
+    - children: &id001 []
+      commandName: Redaxo Frontpage
+      customProperties: null
+      displayName: Redaxo Frontpage
+      path: bundle.rb
+      scope: null
+    - children: *id001
+      commandName: Empty Sidebar
+      customProperties: null
+      displayName: Empty Sidebar
+      path: bundle.rb
+      scope: null
+    - children: *id001
+      commandName: Article/Category online
+      customProperties: null
+      displayName: Article/Category online
+      path: bundle.rb
+      scope: null
+    - children: *id001
+      commandName: REXSeo <head>
+      customProperties: null
+      displayName: REXSeo <head>
+      path: bundle.rb
+      scope: null
+    - children: *id001
+      commandName: Redaxo Navigation + CSS Class
+      customProperties: null
+      displayName: Redaxo Navigation + CSS Class
+      path: bundle.rb
+      scope: null
+    commandName: Template
+    customProperties: null
+    displayName: Template
+    path: bundle.rb
+    scope: null
+  - children:
+    - children: *id001
+      commandName: REX Module Header
+      customProperties: null
+      displayName: REX Module Header
+      path: bundle.rb
+      scope: null
+    - children: *id001
+      commandName: REX Module Addon Available
+      customProperties: null
+      displayName: REX Module Addon Available
+      path: bundle.rb
+      scope: null
+    - children: *id001
+      commandName: REX Module select foreach
+      customProperties: null
+      displayName: REX Module select foreach
+      path: bundle.rb
+      scope: null
+    commandName: Module
+    customProperties: null
+    displayName: Module
+    path: bundle.rb
+    scope: null
+  commandName: Redaxo
+  customProperties: null
+  displayName: Redaxo
+  path: bundle.rb
+  scope: null
+- !!com.aptana.scripting.model.EnvironmentElement {customProperties: null, displayName: environment-136e7b7a-a7e4-489e-a2f9-ed1957741f2a,
+  path: bundle.rb, scope: source.php}
 - !!com.aptana.scripting.model.CommandElement
   async: false
-  customProperties: null
+  customProperties:
+    prefix_values: [redaxo_frontpage]
   displayName: Redaxo Frontpage
   input: [none]
   inputPath: null
@@ -12,11 +82,12 @@ children:
   outputType: insert_as_snippet
   path: commands\commands.rb
   runType: current_thread
-  scope: source.php, text.html source.php, text
+  scope: source.php, text
   workingDirectoryType: UNDEFINED
 - !!com.aptana.scripting.model.CommandElement
   async: false
-  customProperties: null
+  customProperties:
+    prefix_values: [redaxo_sidebar]
   displayName: Empty Sidebar
   input: [none]
   inputPath: null
@@ -25,11 +96,12 @@ children:
   outputType: insert_as_snippet
   path: commands\commands.rb
   runType: current_thread
-  scope: source.php, text.html source.php, text
+  scope: source.php, text
   workingDirectoryType: UNDEFINED
 - !!com.aptana.scripting.model.CommandElement
   async: false
-  customProperties: null
+  customProperties:
+    prefix_values: [redaxo_nav]
   displayName: Redaxo Navigation + CSS Class
   input: [none]
   inputPath: null
@@ -38,7 +110,7 @@ children:
   outputType: insert_as_snippet
   path: commands\commands.rb
   runType: current_thread
-  scope: source.php, text.html source.php, text
+  scope: source.php, text
   workingDirectoryType: UNDEFINED
 - !!com.aptana.scripting.model.CommandElement
   async: false
@@ -51,7 +123,7 @@ children:
   outputType: insert_as_text
   path: commands\commands.rb
   runType: current_thread
-  scope: source.php, text.html source.php, text
+  scope: source.php, text
   workingDirectoryType: UNDEFINED
 - !!com.aptana.scripting.model.CommandElement
   async: false
@@ -64,7 +136,267 @@ children:
   outputType: insert_as_text
   path: commands\commands.rb
   runType: current_thread
-  scope: source.php, text.html source.php, text
+  scope: source.php, text
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.CommandElement
+  async: false
+  customProperties: null
+  displayName: REX Module Header
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_text
+  path: commands\module_commands.rb
+  runType: current_thread
+  scope: source.php, text
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.CommandElement
+  async: false
+  customProperties: null
+  displayName: REX Module Addon Available
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_text
+  path: commands\module_commands.rb
+  runType: current_thread
+  scope: source.php, text
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.CommandElement
+  async: false
+  customProperties: null
+  displayName: REX Module select foreach
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_text
+  path: commands\module_commands.rb
+  runType: current_thread
+  scope: source.php, text
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.CommandElement
+  async: false
+  customProperties: null
+  displayName: REX Category Select List
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_text
+  path: commands\module_commands.rb
+  runType: current_thread
+  scope: source.php, text
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.CommandElement
+  async: false
+  customProperties: null
+  displayName: REX Select List with Select Class
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_text
+  path: commands\module_commands.rb
+  runType: current_thread
+  scope: source.php, text
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: VALUE
+  expansion: VALUE[${0}]
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\modul_snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: REX_VALUE
+  expansion: REX_VALUE[${0}]
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\modul_snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: REX_PHP
+  expansion: REX_PHP[${0}]
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\modul_snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: INPUT_HTML
+  expansion: INPUT_HTML[${0}]
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\modul_snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: INPUT_PHP
+  expansion: INPUT_PHP[${0}]
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\modul_snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: REX_HTML
+  expansion: REX_HTML[${0}]
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\modul_snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: REX_LINK
+  expansion: REX_LINK[${0}]
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\modul_snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: REX_LINK_ID
+  expansion: REX_LINK_ID[${0}]
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\modul_snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: REX_LINK_BUTTON
+  expansion: REX_LINK_BUTTON[${0}]
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\modul_snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: REX_MEDIALIST_BUTTON
+  expansion: REX_MEDIALIST_BUTTON[${0}]
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\modul_snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: REX_MEDIA_BUTTON
+  expansion: REX_MEDIA_BUTTON[${0}]
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\modul_snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: REX_LINKLIST_BUTTON
+  expansion: REX_LINKLIST_BUTTON[${0}]
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\modul_snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: REX_IS_VALUE
+  expansion: REX_IS_VALUE[${0}]
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\modul_snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
   workingDirectoryType: UNDEFINED
 - !!com.aptana.scripting.model.SnippetElement
   async: false
@@ -79,7 +411,7 @@ children:
   outputType: insert_as_snippet
   path: snippets\snippets.rb
   runType: current_thread
-  scope: text.html
+  scope: text.html, source.php
   workingDirectoryType: UNDEFINED
 - !!com.aptana.scripting.model.SnippetElement
   async: false
@@ -94,7 +426,112 @@ children:
   outputType: insert_as_snippet
   path: snippets\snippets.rb
   runType: current_thread
-  scope: text.html
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: REX_ARTICLE_ID
+  expansion: REX_ARTICLE_ID
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: REX_CATEGORY_ID
+  expansion: REX_CATEGORY_ID
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: REX_CTYPE_ID
+  expansion: REX_CTYPE_ID
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [REX]
+  displayName: REX_CLANG_ID
+  expansion: REX_CLANG_ID
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [Fire]
+  displayName: FirePHP::LOG
+  expansion: fb(${0}, FirePHP::LOG);
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [Fire]
+  displayName: FirePHP::ERROR
+  expansion: fb(${0}, FirePHP::ERROR);
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
+  workingDirectoryType: UNDEFINED
+- !!com.aptana.scripting.model.SnippetElement
+  async: false
+  customProperties:
+    prefix_values: [Fire]
+  displayName: FirePHP::WARN
+  expansion: fb(${0}, FirePHP::WARN);
+  input: [none]
+  inputPath: null
+  keyBindingMap: null
+  outputPath: null
+  outputType: insert_as_snippet
+  path: snippets\snippets.rb
+  runType: current_thread
+  scope: text.html, source.php
   workingDirectoryType: UNDEFINED
 - !!com.aptana.scripting.model.SnippetElement
   async: false
@@ -230,53 +667,10 @@ children:
   runType: current_thread
   scope: null
   workingDirectoryType: UNDEFINED
-- !!com.aptana.scripting.model.MenuElement
-  children:
-  - children:
-    - children: &id001 []
-      commandName: Redaxo Frontpage
-      customProperties: null
-      displayName: Redaxo Frontpage
-      path: bundle.rb
-      scope: null
-    - children: *id001
-      commandName: Empty Sidebar
-      customProperties: null
-      displayName: Empty Sidebar
-      path: bundle.rb
-      scope: null
-    - children: *id001
-      commandName: Article/Category online
-      customProperties: null
-      displayName: Article/Category online
-      path: bundle.rb
-      scope: null
-    - children: *id001
-      commandName: REXSeo <head>
-      customProperties: null
-      displayName: REXSeo <head>
-      path: bundle.rb
-      scope: null
-    - children: *id001
-      commandName: Redaxo Navigation + CSS Class
-      customProperties: null
-      displayName: Redaxo Navigation + CSS Class
-      path: bundle.rb
-      scope: null
-    commandName: Template
-    customProperties: null
-    displayName: Template
-    path: bundle.rb
-    scope: null
-  commandName: Redaxo
-  customProperties: null
-  displayName: Redaxo
-  path: bundle.rb
-  scope: null
 copyright: '(c) Copyright 2012 www.jswebschmiede.de Distributed under MIT license.
 
   '
-customProperties: {scope: 'text.html source.php, source.php'}
+customProperties: {contact_email_rot_13: info@jswebschmiede.de}
 decreaseIndentMarkers: &id002 {}
 description: 'Redaxo CMS Templates and Snippets for templating, addons etc.
 
@@ -284,8 +678,8 @@ description: 'Redaxo CMS Templates and Snippets for templating, addons etc.
 displayName: Redaxo
 fileTypeRegistry: *id002
 fileTypes: *id001
-foldingStartMarkers: *id002
-foldingStopMarkers: *id002
+foldingStartMarkers: {!scope 'source.php': !regexp '(?-mix:(\/\*|\{\s*$|<<<HTML))'}
+foldingStopMarkers: {!scope 'source.php': !regexp '(?-mix:(\*\/|^\s*\}|^HTML;))'}
 increaseIndentMarkers: *id002
 license: null
 licenseUrl: null
